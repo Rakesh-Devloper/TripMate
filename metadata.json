@@ -1,0 +1,6 @@
+{
+  "name": "TripMate",
+  "description": "AI Powered Travel Planning Platform with custom itineraries, interactive maps, destination discovery, and budget tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

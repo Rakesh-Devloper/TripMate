@@ -1,0 +1,264 @@
+@import 'tailwindcss';
+
+/*
+|--------------------------------------------------------------------------
+| Tailwind v4 Dark Mode
+|--------------------------------------------------------------------------
+| Tell Tailwind to use the .dark class on <html> instead of the
+| user's operating-system preference.
+*/
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-handwriting: 'Caveat', cursive;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Base
+|--------------------------------------------------------------------------
+*/
+
+:root {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #f8fafc;
+  color: #0f172a;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+html.dark body {
+  background: #070b14;
+  color: #f8fafc;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Root application
+|--------------------------------------------------------------------------
+*/
+
+#root {
+  min-height: 100vh;
+  background: #f8fafc;
+  transition: background-color 0.25s ease;
+}
+
+html.dark #root {
+  background: #070b14;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Selection
+|--------------------------------------------------------------------------
+*/
+
+::selection {
+  background: rgba(124, 58, 237, 0.25);
+  color: #0f172a;
+}
+
+html.dark ::selection {
+  background: rgba(139, 92, 246, 0.35);
+  color: #ffffff;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Buttons / Links
+|--------------------------------------------------------------------------
+*/
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font-family: inherit;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Smooth theme transition
+|--------------------------------------------------------------------------
+*/
+
+body,
+#root,
+header,
+nav,
+main,
+section,
+footer,
+article,
+aside,
+div {
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Ambient effects
+|--------------------------------------------------------------------------
+*/
+
+.ambient-glow-purple {
+  background: radial-gradient(
+    circle,
+    rgba(124, 58, 237, 0.35),
+    transparent 70%
+  );
+}
+
+.ambient-glow-blue {
+  background: radial-gradient(
+    circle,
+    rgba(37, 99, 235, 0.3),
+    transparent 70%
+  );
+}
+
+/*
+|--------------------------------------------------------------------------
+| Glass pill
+|--------------------------------------------------------------------------
+*/
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.dark .glass-pill {
+  background: rgba(15, 23, 42, 0.78);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Handwriting font
+|--------------------------------------------------------------------------
+*/
+
+.font-handwriting {
+  font-family: var(--font-handwriting);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Fade animation
+|--------------------------------------------------------------------------
+*/
+
+.animate-fade-in {
+  animation: fade-in 0.35s ease-out both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Scrollbar
+|--------------------------------------------------------------------------
+*/
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: #0b1120;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Images
+|--------------------------------------------------------------------------
+*/
+
+img {
+  max-width: 100%;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Form controls
+|--------------------------------------------------------------------------
+*/
+
+input,
+textarea,
+select {
+  color-scheme: light;
+}
+
+html.dark input,
+html.dark textarea,
+html.dark select {
+  color-scheme: dark;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Prevent white flash while dark mode loads
+|--------------------------------------------------------------------------
+*/
+
+html.dark {
+  background: #070b14;
+}
+
+html:not(.dark) {
+  background: #f8fafc;
+}
